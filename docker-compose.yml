@@ -5,6 +5,19 @@ services:
     build: .
     ports:
       - "5000:5000"
+    depends_on:
+      - db
     volumes:
       - ./logs:/app/logs
     restart: unless-stopped
+
+  db:
+   image: postgres:13
+   environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_DB: flaskdb
+   volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
