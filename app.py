@@ -8,7 +8,8 @@ def home():
     try:
         conn = psycopg2.connect(
             host="db",
-            dbname="flaskdb"
+            dbname="flaskdb",
+            user="postgres"
         )
         return "✅ Connected to Postgres (no auth)"
     except Exception as e:
