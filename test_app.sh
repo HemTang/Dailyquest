@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -e
+
+echo "Running test.."
+
+curl -s -f http://192.168.57.17:8080/ || { echo "/endpoint failed"; exit1; }
+
+
+echo "All endpoints responded successfully!"
+

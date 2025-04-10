@@ -23,6 +23,19 @@ pipeline{
                 sh 'cat logs/container.log || echo " No logs yet"'
             }
         }
+        stage('Logs'){
+            steps{
+                echo "Displaying logs"
+                sh 'cat logs/container.log || echo " No logs yet"'
+            }
+        }
+        stage('Run Test'){
+            steps{
+                echo "Testing Endpoints"
+                sh 'sleep 10'
+                sh './test_app.sh'
+            }
+        }
 
     }
     post{
